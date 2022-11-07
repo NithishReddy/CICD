@@ -68,7 +68,7 @@ class CalculatorTest(TestCase):
         We are using mocking function to mock the response of the addition function in Calculator
         """
     def test_perform_operation1(self):
-        Calculator.addition = MagicMock(return_value=5)
+        Calculator.addition = MagicMock(return_value=6)
         self.assertEqual(Calculator.perform_operation('+', 3, 3), 6)
     
     def test_perform_operation2(self):
