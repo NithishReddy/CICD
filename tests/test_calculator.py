@@ -1,8 +1,6 @@
 from unittest import TestCase
 import unittest
 from unittest.mock import MagicMock
-#from code import Calculator
-#from exceptions import InvalidInput, DivisionByZero
 
 
 class InvalidInput(Exception):
