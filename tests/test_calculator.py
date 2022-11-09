@@ -100,6 +100,6 @@ class CalculatorTest(TestCase):
         with self.assertRaises(InvalidInput):
             Calculator.perform_operation('%', 9, 3)
     
-    @unittest.mock.patch('Calculator.get_value1', return_value=50)
+    @unittest.mock.patch('CICD.Calculator.get_value1', return_value=50)
     def test_perform_operation7(self):
 	    self.assertEqual(Calculator.add_two_numbers(), 70)
