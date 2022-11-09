@@ -22,6 +22,15 @@ class DivisionByZero(Exception):
 class Calculator:
     
     @staticmethod
+    def get_value2():
+        return 20
+    
+    @staticmethod
+    def add_two_numbers():
+        return Calculator.get_value1() + Calculator.get_value2()
+    	
+    
+    @staticmethod
     def addition(var1, var2):
         return var1 + var2
 
@@ -32,6 +41,11 @@ class Calculator:
     @staticmethod
     def multiplication(var1, var2):
         return var1 * var2
+    
+    @staticmethod
+    def get_value1():
+	    return 10
+ 
     
     @staticmethod
     def division(var1, var2):
@@ -85,3 +99,7 @@ class CalculatorTest(TestCase):
     def test_perform_operation6(self):
         with self.assertRaises(InvalidInput):
             Calculator.perform_operation('%', 9, 3)
+    
+    @unittest.mock.patch('Calculator.get_value1', return_value=50)
+    def test_perform_operation7(self):
+	    self.assertEqual(Calculator.add_two_numbers(), 70)
