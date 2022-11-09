@@ -1,6 +1,6 @@
 from unittest import TestCase
 import unittest
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, Mock
 
 
 class InvalidInput(Exception):
@@ -100,18 +100,6 @@ class CalculatorTest(TestCase):
         with self.assertRaises(InvalidInput):
             Calculator.perform_operation('%', 9, 3)
     
-    @staticmethod
-    def get_value2():
-        return 20
-    
-    @staticmethod
-    def get_value1():
-        return 10
-    
-    @staticmethod
-    def add_two_numbers():
-        return CalculatorTest.get_value1() + CalculatorTest.get_value2()
-    
-    @unittest.mock.patch('CalculatorTest.get_value1', return_value=50)
     def test_perform_operation7(self):
-	    self.assertEqual(CalculatorTest.add_two_numbers(), 70)
+        Calculator.subtraction = Mock(return_value=6)
+        self.assertEqual(Calculator.perform_operation('-', 9, 3), 6)
